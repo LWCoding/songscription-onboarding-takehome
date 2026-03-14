@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Songscription — Frontend Take-Home Project
+
+## Purpose
+
+This project gives you a feel for the kind of work you'd be doing at Songscription, and gives us a sense of how you think about UI and user experience. We're building a gamified piano learning app, and first impressions matter — we want onboarding to feel as fun and polished as the product itself.
+
+## The Task
+
+We've built a basic React onboarding flow that walks new users through a few questions before they get started — things like whether they'd prefer to learn from sheet music or a piano roll.
+
+The UI is intentionally bare-bones. Your job is to make it feel great. That could mean animations, transitions, visual polish, interaction design, or something we haven't thought of. Be as creative or as practical as you like — the direction is up to you.
+
+The app runs in the browser (React, not React Native), so no phone emulation needed.
 
 ## Getting Started
 
-First, run the development server:
+1. Fork this repo
+2. Run the app locally:
+   ```bash
+   npm install
+   npm start
+   ```
+3. Make it nice!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Guidelines
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Time limit:** Please don't spend more than 2 hours on this. It's fine if you don't get to everything you envision — we'd like to see what you can do in 2 hours.
+- **Keep the questions and core flow intact** — the focus is on look, feel, and experience.
+- **You're not restricted to our existing colors or design** — make it your own if you'd like.
+- **Keep it browser-runnable** — no native dependencies, please.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Submission
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+When you're done, send the following to [alex@songscription.ai](mailto:alex@songscription.ai) or [katie@songscription.ai](mailto:katie@songscription.ai):
 
-## Learn More
+1. A link to your forked repo
+2. A few screenshots of your finished UI
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thanks for taking the time — we're looking forward to seeing what you come up with. 🎹
