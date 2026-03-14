@@ -18,8 +18,9 @@ The app runs in the browser (React, not React Native), so no phone emulation nee
 2. Run the app locally:
    ```bash
    npm install
-   npm start
+   npm run dev
    ```
+   The app will run on localhost:3000
 3. Make it nice!
 
 ## Guidelines
