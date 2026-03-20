@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import ProgressBar from "@/components/ProgressBar";
+import OnboardingBackLink from "@/components/OnboardingBackLink";
 
 const genres = [
   { id: "classical", label: "Classical" },
@@ -33,22 +33,20 @@ export default function OnboardingTastePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-[80vh]">
-      <ProgressBar step={2} total={4} />
-
+    <div className="flex min-h-0 flex-1 flex-col">
       <h1 className="text-2xl font-bold text-gray-900 mb-2">
         What music do you love?
       </h1>
-      <p className="text-base text-gray-500 mb-8">
+      <p className="text-base text-gray-500 mb-5">
         Pick your favorite genres
       </p>
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2">
         {genres.map((genre) => (
           <button
             key={genre.id}
             onClick={() => toggle(genre.id)}
-            className="rounded-full px-5 py-3 border-2 transition-colors cursor-pointer"
+            className="rounded-full px-5 py-2 border-2 transition-colors cursor-pointer"
             style={{
               borderColor: selected.has(genre.id) ? "#218579" : "#e5e7eb",
               backgroundColor: selected.has(genre.id) ? "#e6f5f3" : "#fff",
@@ -60,13 +58,16 @@ export default function OnboardingTastePage() {
       </div>
 
       <div className="flex-1" />
-      <button
-        onClick={() => router.push("/onboarding/notation")}
-        disabled={selected.size === 0}
-        className="bg-primary rounded-2xl py-4 text-center text-white font-semibold text-lg mt-8 transition-opacity cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90"
-      >
-        Continue
-      </button>
+      <div className="mt-7 flex shrink-0 flex-col gap-5">
+        <button
+          onClick={() => router.push("/onboarding/notation")}
+          disabled={selected.size === 0}
+          className="w-full bg-primary rounded-2xl py-1.5 text-center text-white font-semibold text-base transition-opacity cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90"
+        >
+          Continue
+        </button>
+        <OnboardingBackLink href="/onboarding/goals" />
+      </div>
     </div>
   );
 }

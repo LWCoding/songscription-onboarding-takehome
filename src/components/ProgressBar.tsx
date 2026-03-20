@@ -5,7 +5,7 @@ interface ProgressBarProps {
 
 export default function ProgressBar({ step, total }: ProgressBarProps) {
   return (
-    <div className="flex gap-2 mb-8">
+    <div className="flex gap-2 mb-6">
       {Array.from({ length: total }, (_, i) => (
         <div
           key={i}
