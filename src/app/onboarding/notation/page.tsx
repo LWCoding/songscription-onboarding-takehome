@@ -64,7 +64,7 @@ export default function OnboardingNotationPage() {
       <div className="flex-1" />
       <div className="mt-7 flex shrink-0 flex-col gap-5">
         <button
-          onClick={() => router.push("/onboarding/complete")}
+          onClick={() => router.push("/onboarding/finishing")}
           disabled={!selected}
           className="w-full bg-primary rounded-2xl py-1.5 text-center text-white font-semibold text-base transition-opacity cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90"
         >

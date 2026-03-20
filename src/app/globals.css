@@ -21,3 +21,26 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Keyframe names are injected by PianoRollLoader (one global cycle per key) */
+.piano-roll-key-cell {
+  will-change: background-color;
+}
+
+@keyframes piano-loader-pulse {
+  0%,
+  100% {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.piano-loader-pulse {
+  transform-origin: center center;
+  animation: piano-loader-pulse 2.4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
