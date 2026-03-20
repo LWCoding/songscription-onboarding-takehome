@@ -22,7 +22,7 @@ export default function OnboardingFinishingPage() {
         <div className="piano-loader-pulse inline-flex shrink-0">
           <PianoRollLoader />
         </div>
-        <p className="mt-5 max-w-[18rem] text-center text-sm leading-relaxed text-gray-600">
+        <p className="mt-2 max-w-[18rem] text-center text-sm leading-relaxed text-gray-600">
           Setting up your account... Exciting!
         </p>
       </div>
