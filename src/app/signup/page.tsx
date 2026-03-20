@@ -5,14 +5,58 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import MaestraMark from "@/components/MaestraMark";
 
+const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+function isValidEmail(value: string): boolean {
+  return EMAIL_OK.test(value.trim());
+}
+
+function IconInvalid({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="10" />
+      <line x1="15" y1="9" x2="9" y2="15" />
+      <line x1="9" y1="9" x2="15" y2="15" />
+    </svg>
+  );
+}
+
 export default function SignUpPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [emailBlurred, setEmailBlurred] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+
+  const emailTrim = email.trim();
+  const emailHasBadInput = emailTrim.length > 0 && !isValidEmail(email);
+  const showEmailError =
+    (emailHasBadInput && emailBlurred) ||
+    (submitAttempted && !isValidEmail(email));
+
+  const emailErrorMessage =
+    emailTrim.length === 0
+      ? "Enter your email address."
+      : "Enter a valid email address, like name@example.com.";
+
+  const canSubmit = isValidEmail(email) && password.trim().length > 0;
 
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitAttempted(true);
+    if (!canSubmit) return;
     router.push("/onboarding/mastery");
   };
 
@@ -33,11 +77,15 @@ export default function SignUpPage() {
         </div>
 
         <div className="rounded-xl border border-gray-200 bg-white px-5 py-5 shadow-sm">
-          <form onSubmit={handleSignUp} className="flex flex-col gap-3">
+          <form
+            noValidate
+            onSubmit={handleSignUp}
+            className="flex flex-col gap-3"
+          >
             <div>
               <label
                 htmlFor="signup-email"
-                className="mb-1 block text-xs font-semibold text-gray-600"
+                className="mb-1 block text-sm font-semibold text-gray-600"
               >
                 Email
               </label>
@@ -50,14 +98,33 @@ export default function SignUpPage() {
                 placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                onBlur={() => setEmailBlurred(true)}
+                aria-invalid={showEmailError ? true : undefined}
+                aria-describedby={showEmailError ? "signup-email-error" : undefined}
+                className={`w-full rounded-lg border px-3 py-2 text-base text-gray-900 placeholder:text-gray-400 outline-none focus:ring-1 ${
+                  showEmailError
+                    ? "border-red-400 focus:border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:border-primary focus:ring-primary"
+                }`}
               />
+              {showEmailError && (
+                <div
+                  id="signup-email-error"
+                  className="mt-2 flex gap-2 text-left"
+                  role="alert"
+                >
+                  <IconInvalid className="mt-0.5 shrink-0 text-red-600" />
+                  <p className="text-xs leading-relaxed text-red-700">
+                    {emailErrorMessage}
+                  </p>
+                </div>
+              )}
             </div>
 
             <div>
               <label
                 htmlFor="signup-password"
-                className="mb-1 block text-xs font-semibold text-gray-600"
+                className="mb-1 block text-sm font-semibold text-gray-600"
               >
                 Password
               </label>
@@ -108,13 +175,13 @@ export default function SignUpPage() {
 
             <button
               type="submit"
-              className="mt-4 mb-3 w-full cursor-pointer rounded-lg bg-primary py-1.5 text-center text-base font-semibold text-white transition-opacity hover:opacity-90"
+              className="mt-4 mb-0 w-full cursor-pointer rounded-lg bg-primary py-1.5 text-center text-base font-semibold text-white transition-opacity hover:opacity-90"
             >
               Continue
             </button>
           </form>
 
-          <div className="relative my-3">
+          <div className="relative my-5">
             <div className="absolute inset-0 flex items-center" aria-hidden>
               <div className="w-full border-t border-gray-200" />
             </div>
@@ -126,7 +193,7 @@ export default function SignUpPage() {
           <button
             type="button"
             onClick={() => router.push("/onboarding/mastery")}
-            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-1.5 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-50"
+            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-1.5 text-center text-base font-normal text-gray-900 transition-colors hover:bg-gray-50"
           >
             <svg
               width="18"
