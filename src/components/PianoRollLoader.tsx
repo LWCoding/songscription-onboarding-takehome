@@ -52,7 +52,7 @@ export default function PianoRollLoader({ className }: { className?: string }) {
     >
       <style dangerouslySetInnerHTML={{ __html: keyframesCss }} />
       {/* Fixed width so keys stay readable; avoids flex parents squishing w-full+max-w */}
-      <div className="relative inline-block w-[9rem] shrink-0 md:w-[10rem]">
+      <div className="relative inline-block w-[9rem] shrink-0 overflow-hidden rounded-lg md:w-[10rem]">
         <div
           className="pointer-events-none absolute inset-0 z-0 opacity-[0.2]"
           style={{
