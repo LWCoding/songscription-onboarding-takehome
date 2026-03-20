@@ -1,10 +1,8 @@
 import Link from "next/link";
-import MaestraMark from "@/components/MaestraMark";
 
 export default function OnboardingCompletePage() {
   return (
     <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center text-center">
-      <MaestraMark className="mb-6 h-12 w-12" />
       <h1 className="text-2xl font-bold tracking-tight text-gray-900">
         You&apos;re all set!
       </h1>

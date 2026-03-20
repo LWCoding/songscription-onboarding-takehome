@@ -20,7 +20,13 @@ export default function SignUpPage() {
     <div className="flex min-h-0 w-full flex-1 flex-col items-center">
       <div className="w-full max-w-sm">
         <div className="mb-6 flex flex-col items-center gap-4">
-          <MaestraMark className="h-10 w-10" />
+          <Link
+            href="/"
+            aria-label="Maestra — home"
+            className="rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            <MaestraMark className="h-10 w-10" />
+          </Link>
           <h1 className="text-center text-2xl font-bold tracking-tight text-gray-900">
             Create your Maestra account
           </h1>

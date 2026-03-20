@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MaestraMark from "@/components/MaestraMark";
 import ProgressBar from "@/components/ProgressBar";
 
 const STEP_BY_SEGMENT: Record<string, number> = {
@@ -23,6 +25,15 @@ export default function OnboardingLayout({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
+      <header className="flex w-full shrink-0 justify-center pb-5">
+        <Link
+          href="/"
+          aria-label="Maestra — return to start"
+          className="rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          <MaestraMark className="h-10 w-10" />
+        </Link>
+      </header>
       {!isComplete && (
         <div className="shrink-0">
           <ProgressBar step={step} total={4} />
