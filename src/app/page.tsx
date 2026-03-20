@@ -33,6 +33,46 @@ function IconInvalid({ className }: { className?: string }) {
   );
 }
 
+function IconMail({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+function IconLock({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
 export default function WelcomePage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -91,24 +131,32 @@ export default function WelcomePage() {
               >
                 Email
               </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onBlur={() => setEmailBlurred(true)}
-                aria-invalid={showEmailError ? true : undefined}
-                aria-describedby={showEmailError ? "email-error" : undefined}
-                className={`w-full rounded-lg border px-3 py-2 text-base text-gray-900 placeholder:text-gray-400 outline-none focus:ring-1 ${
-                  showEmailError
-                    ? "border-red-400 focus:border-red-500 focus:ring-red-500"
-                    : "border-gray-300 focus:border-primary focus:ring-primary"
-                }`}
-              />
+              <div className="relative">
+                <span
+                  className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-gray-400"
+                  aria-hidden
+                >
+                  <IconMail />
+                </span>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setEmailBlurred(true)}
+                  aria-invalid={showEmailError ? true : undefined}
+                  aria-describedby={showEmailError ? "email-error" : undefined}
+                  className={`w-full rounded-lg border py-2 pr-3 pl-10 text-base text-gray-900 placeholder:text-gray-400 outline-none focus:ring-1 ${
+                    showEmailError
+                      ? "border-red-400 focus:border-red-500 focus:ring-red-500"
+                      : "border-gray-300 focus:border-primary focus:ring-primary"
+                  }`}
+                />
+              </div>
               {showEmailError && (
                 <div
                   id="email-error"
@@ -131,6 +179,12 @@ export default function WelcomePage() {
                 Password
               </label>
               <div className="relative">
+                <span
+                  className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-gray-400"
+                  aria-hidden
+                >
+                  <IconLock />
+                </span>
                 <input
                   id="password"
                   name="password"
@@ -140,7 +194,7 @@ export default function WelcomePage() {
                   placeholder="Your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2 pr-10 text-base text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                  className="w-full rounded-lg border border-gray-300 py-2 pr-10 pl-10 text-base text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                 />
                 <button
                   type="button"
@@ -171,6 +225,14 @@ export default function WelcomePage() {
                       </>
                     )}
                   </svg>
+                </button>
+              </div>
+              <div className="mt-1.5 flex justify-end">
+                <button
+                  type="button"
+                  className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline"
+                >
+                  Forgot your password?
                 </button>
               </div>
             </div>
