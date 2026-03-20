@@ -21,18 +21,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} font-sans antialiased`}>
-        {/* Wide screens: piano + dark overlay behind the white strip */}
+        {/* Full-page chrome: silver base + washes from theme tokens */}
         <div
-          className="pointer-events-none fixed inset-0 z-0 hidden md:block"
+          className="pointer-events-none fixed inset-0 z-0"
           aria-hidden
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url(/img/piano-bg.jpg)" }}
-          />
-          <div className="absolute inset-0 bg-black/55" />
-        </div>
-        <div className="relative z-10 flex min-h-dvh justify-center bg-background md:bg-transparent">
+          style={{
+            background: `
+              radial-gradient(ellipse 110% 65% at 50% -8%, rgba(255, 255, 255, 0.5), transparent 52%),
+              radial-gradient(ellipse 85% 55% at 100% 8%, color-mix(in srgb, var(--primary) 11%, transparent), transparent 58%),
+              radial-gradient(ellipse 75% 60% at 0% 100%, color-mix(in srgb, var(--primary-light) 82%, transparent), transparent 55%),
+              linear-gradient(
+                145deg,
+                #b8c2bf 0%,
+                #d5dfdc 18%,
+                #eef3f2 38%,
+                #c9d5d1 56%,
+                #e8f0ee 74%,
+                #9eaaa6 100%
+              )
+            `,
+          }}
+        />
+        <div className="relative z-10 flex min-h-dvh justify-center bg-transparent">
           <main className="flex min-h-dvh w-full max-w-xl min-w-0 flex-col bg-background md:border-x md:border-gray-200/90 md:shadow-[0_25px_80px_-20px_rgba(0,0,0,0.35)]">
             <div className="flex min-h-0 w-full flex-1 flex-col overflow-y-auto px-9 pb-4 pt-8 md:px-11">
               <div className="mx-auto flex w-full max-w-md min-h-0 flex-1 flex-col">
