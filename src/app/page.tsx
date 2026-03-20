@@ -212,17 +212,17 @@ export default function WelcomePage() {
               Continue with Apple
             </button>
           </div>
-        </div>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
-          New to Maestra?{" "}
-          <Link
-            href="/signup"
-            className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
-          >
-            Create an account
-          </Link>
-        </p>
+          <p className="mt-6 text-center text-sm text-gray-600">
+            New to Maestra?{" "}
+            <Link
+              href="/signup"
+              className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
+            >
+              Create an account
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -207,17 +207,17 @@ export default function SignUpPage() {
             </svg>
             Continue with Apple
           </button>
-        </div>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
-          Already have a Maestra account?{" "}
-          <Link
-            href="/"
-            className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
-          >
-            Log in
-          </Link>
-        </p>
+          <p className="mt-6 text-center text-sm text-gray-600">
+            Already have a Maestra account?{" "}
+            <Link
+              href="/"
+              className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
+            >
+              Log in
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
