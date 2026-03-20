@@ -19,12 +19,9 @@ export default function OnboardingFinishingPage() {
   return (
     <div className="flex min-h-0 flex-1 flex-col items-center justify-center px-4">
       <div className="flex flex-col items-center">
-        <div className="piano-loader-pulse inline-flex shrink-0">
+        <div className="piano-loader-pulse inline-flex shrink-0 origin-center scale-150">
           <PianoRollLoader />
         </div>
-        <p className="mt-2 max-w-[18rem] text-center text-sm leading-relaxed text-gray-600">
-          Setting up your account... Exciting!
-        </p>
       </div>
     </div>
   );
